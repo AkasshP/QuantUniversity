@@ -1,0 +1,80 @@
+/* File: frontend/src/components/navbar/NavBar.css */
+
+.navbar {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    /* background: rgba(0, 0, 0, 0.6); */
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .navbar__brand {
+    font-size: 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .navbar__links {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+  }
+  
+  .navbar__links li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar__links a,
+  .navbar__links button,
+  .navbar__links span {
+    font-size: 0.95rem;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: whitesmoke
+  }
+  
+  .navbar__links button:hover,
+  .navbar__links a:hover {
+    text-decoration: underline;
+  }
+  
+  .navbar__link--cert {
+    font-weight: 600;
+    color: #0a7; /* accent green */
+  }
+  
+  .navbar__link--disabled {
+    color: #999;
+    cursor: default;
+  }
+  
+  .navbar__links button {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  
+  .navbar__links button:hover {
+    background: rgba(0,0,0,0.05);
+  }
+  .navbar__links span.disabled {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: #777;
+    cursor: default;
+  }
+  
+  .navbar__links .icon-lock {
+    color: #777;
+  }

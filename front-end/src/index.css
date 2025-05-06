@@ -1,0 +1,137 @@
+/* index.css */
+
+/* 1. Import a clean, legible font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+/* 2. Global reset & base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+html, body, #root {
+  height: 100%;
+  color: #e0e0e0;
+}
+
+/* 3. Animated dark gradient + noise background on <body> */
+body {
+  position: relative;
+  min-height: 100vh;
+
+  /* base gradient + noise (ensure code-bg.avif lives in public/assets/) */
+  background:
+    url('../public//assets/code-bg.avif') repeat,
+    linear-gradient(120deg, #0d0f14 0%, #1e212a 50%, #0d0f14 100%);
+  background-size: auto, 400% 400%;
+  animation: gradientShift 20s ease infinite;
+}
+
+/* desaturate & darken via a full‑screen overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: inherit;        /* pull in noise + gradient */
+  filter: saturate(0.4) brightness(0.6);
+  z-index: -1;                /* behind all content */
+}
+
+/* 4. Shift gradient background position over time */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%, 0 0; }
+  50%  { background-position: 100% 50%, 0 0; }
+  100% { background-position: 0% 50%, 0 0; }
+}
+
+/* 5. App layout: header/footer sticky and main content grows */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  /* ensure content sits above the bg overlay */
+  position: relative;
+  z-index: 1;
+}
+
+/* 6. Glass‑morphic navbar & footer */
+.navbar,
+.footer {
+  width: 100%;
+  background: rgba(30, 34, 44, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar a {
+  color: #f0f0f0;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: 500;
+}
+.footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #aaa;
+}
+
+/* 7. Module cards */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.card {
+  background: rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s, opacity 0.2s;
+  position: relative;
+}
+.card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.15);
+}
+.card.unlocked {
+  border: 2px solid #4ade80;  /* green */
+  opacity: 1;
+}
+.card.locked {
+  border: 2px solid rgba(255,255,255,0.2);
+  opacity: 0.6;
+}
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+.card .badge {
+  display: inline-block;
+  background: #4ade80;
+  color: #0b0f07;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+/* 8. Progress summary box */
+.progress-summary {
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: #ddd;
+}

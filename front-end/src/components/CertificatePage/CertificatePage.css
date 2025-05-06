@@ -1,0 +1,76 @@
+/* File: frontend/src/components/CertificatePage.css */
+
+/* full‑screen centered flex container */
+.certificate-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 64px);
+  padding: 2rem;
+}
+
+/* the white “card” */
+.certificate-page__card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem 3rem;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+}
+
+/* headline */
+.certificate-page__card h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #388e3c;
+  line-height: 1.2;
+}
+
+/* score text */
+.certificate-page__score {
+  margin: 1rem 0 2rem;
+  font-size: 1.125rem;
+  color: #555;
+}
+
+/* download button */
+.certificate-page__download-btn {
+  background-color: #2962ff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.certificate-page__download-btn:hover {
+  background-color: #0039cb;
+  transform: translateY(-2px);
+}
+
+.certificate-page__download-btn:active {
+  transform: translateY(0);
+}
+
+/* ineligible state overrides */
+.certificate-page.ineligible .certificate-page__card h2 {
+  color: #d32f2f;
+}
+
+.certificate-page.ineligible .certificate-page__card p {
+  color: #666;
+}
+
+/* loading text */
+.certificate-page__loading {
+  text-align: center;
+  font-size: 1.25rem;
+  color: #fff;
+  padding-top: 4rem;
+}
